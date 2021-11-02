@@ -10,7 +10,7 @@
 }
 
 html {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 body {
@@ -23,7 +23,6 @@ ul {
 
 a {
     text-decoration: none;
-    color: unset;
 }
 
 a:hover {
@@ -34,43 +33,9 @@ img {
     max-width: 100%;
 }
 
-@each $color, $val in $colors {
-    .color-#{$color} {
-        color: $val;
-    }
-
-    .bg-#{$color} {
-        background-color: $val;
-    }
-}
-
-@each $val in $numbers {
-    .grid-col-#{$val} {
-        grid-template-columns: repeat($val, 1fr);
-    }
-}
-
-@each $val in $numbers {
-    .grid-col-md-#{$val} {
-        @include tablet {
-            grid-template-columns: repeat($val, 1fr);
-        }
-    }
-}
-
-@each $val in $numbers {
-    .grid-col-sm-#{$val} {
-        @include mobile {
-            grid-template-columns: repeat($val, 1fr);
-        }
-    }
-}
-
 .container {
     width: 100%;
     max-width: 1620px;
-    padding: 0 50px;
-    margin: auto;
 
     @include tablet {
         padding: 0 20px;

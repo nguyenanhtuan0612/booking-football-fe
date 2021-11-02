@@ -1,57 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/image/logo192.png';
-import { constants } from '../configs';
-const { textConst: text } = constants;
-
-const mainNav = [
-    {
-        display: text.HOME,
-        path: '/',
-    },
-    {
-        display: text.MY_TEAM,
-        path: '/teamDetail',
-    },
-    {
-        display: text.CONTACT,
-        path: '/contact',
-    },
-];
+import { useState } from 'react';
 
 export default function Header() {
+    const [user, setUser] = useState('ĐĂNG KÍ/ĐĂNG NHẬP');
     return (
         <div className="header">
-            <div className="container">
+            <div className="header_inner container">
                 <div className="header_logo">
-                    <Link to="/">
-                        <img src={logo} />
+                    <img src={logo} alt="" />
+                </div>
+                <ul className="header_nav">
+                    <Link className="header_nav_items" to="/">
+                        <span>TRANG CHỦ</span>
                     </Link>
-                </div>
-                <div className="header_menu_mobile_toggle">
-                    <i className="bx bx-menu-alt-left"></i>
-                </div>
-                <div className="header_menu_left">
-                    {mainNav.map((item, index) => (
-                        <div key={index} className="header_menu_left_item">
-                            <Link to={item.path}>
-                                <span>{item.display}</span>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-                <div className="header_menu_right">
-                    <div className="header_menu_right_item">
-                        <Link to="#">
-                            <i className="bx bx-search"></i>
-                        </Link>
-                    </div>
-                    <div className="header_menu_right_item">
-                        <Link to="/user">
-                            <i className="bx bx-user"></i>
-                        </Link>
-                    </div>
-                </div>
+                    <Link className="header_nav_items">
+                        <span>ĐỘI CỦA TÔI</span>
+                    </Link>
+                    <Link className="header_nav_items">
+                        <span>CÁC TRẬN ĐẤU</span>
+                    </Link>
+                    <Link className="header_nav_items">
+                        <span>LIÊN HỆ</span>
+                    </Link>
+                </ul>
+                <Link className="header_login" to="/">
+                    <span>{user}</span>
+                </Link>
             </div>
         </div>
     );
